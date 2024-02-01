@@ -1,3 +1,12 @@
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('playerNumberInput').addEventListener('keypress', function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevent the default action
+            findPlayer(); // Call your function
+        }
+    });
+});
+
 function findPlayer() {
   
   let playerNumber = Number(document.getElementById('playerNumber').value);
