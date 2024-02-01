@@ -1,3 +1,4 @@
 function findPlayer() {
- document.getElementById('playerName').textContent = '10';
+  let playerNumber = document.getElementById('playerNumber').value;
+  document.getElementById('playerName').textContent = '10';
 }
