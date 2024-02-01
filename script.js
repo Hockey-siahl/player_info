@@ -7,7 +7,7 @@ function findPlayer() {
     .then(response => response.json())
     .then(data => {
             // Filter players with jersey_number playerNumber
-            let player = data.filter(player => player.jersey_number === 15);
+            let player = data.filter(player => player.jersey_number == 15);
 
             // Do something with the filtered players
             player.forEach(playerx => {
