@@ -5,7 +5,7 @@ function findPlayer() {
     document.getElementById('playerName').textContent = playerNumber;
     document.getElementById('playerName').textContent = '10';
 
-    import data from './players.json' assert { type: 'json' };
+    //import data from './players.json' assert { type: 'json' };
     //console.log(data); 
 
     //fetch('players.json')
