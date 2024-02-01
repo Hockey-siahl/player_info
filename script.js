@@ -3,11 +3,11 @@ function findPlayer() {
   let playerNumber = document.getElementById('playerNumber').value;
   console.log(playerNumber);
   
-  fetch('players.json')
+  fetch("players.json")
     .then(response => response.json())
     .then(data => {
             // Filter players with jersey_number playerNumber
-            let player = data.filter(player => player.player_number == '15');
+            let player = data.filter(Number(player => player.player_number) === 15);
 
             // Do something with the filtered players
             player.forEach(playerx => {
