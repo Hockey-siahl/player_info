@@ -8,6 +8,23 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function findPlayer() {
+
+    document.getElementById("playerName1").textContent = ''
+    document.getElementById("playerName2").textContent = ''
+    document.getElementById("playerName3").textContent = ''
+    document.getElementById("playerName4").textContent = ''
+    document.getElementById("playerName5").textContent = ''
+    document.getElementById("playerName6").textContent = ''
+    document.getElementById("playerName7").textContent = ''
+    document.getElementById("playerName8").textContent = ''
+    document.getElementById("playerName9").textContent = ''
+    document.getElementById("playerName10").textContent = ''
+    document.getElementById("playerName11").textContent = ''
+    document.getElementById("playerName12").textContent = ''
+    document.getElementById("playerName13").textContent = ''
+    document.getElementById("playerName14").textContent = ''
+    document.getElementById("playerName15").textContent = ''
+    document.getElementById("playerName16").textContent = ''
   
   let playerNumber = Number(document.getElementById('playerNumber').value);
   console.log(playerNumber);
