@@ -13,7 +13,7 @@ function findPlayer() {
             player.forEach(playerx => {
                 console.log(playerx.player_name);
             });            
-        document.getElementById('playerName').textContent = player.player_name;
+        document.getElementById('playerName').textContent = player[0].player_name;
         })
         .catch(error => {
             console.error('Error reading JSON:', error);
