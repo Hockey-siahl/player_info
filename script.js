@@ -10,7 +10,7 @@ function findPlayer() {
 
             // Do something with the filtered players
             console.log(player);
-            document.getElementById('playerName').textContent = player => player.player_name;
+            document.getElementById('playerName').textContent = player.player_name;
         })
         .catch(error => {
             console.error('Error reading JSON:', error);
