@@ -1,6 +1,6 @@
 function findPlayer() {
   
-  let playerNumber = document.getElementById('playerNumber').value;
+  let playerNumber = Number(document.getElementById('playerNumber').value);
   console.log(playerNumber);
   
   fetch("players.json")
