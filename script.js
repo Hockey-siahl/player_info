@@ -15,6 +15,5 @@ function findPlayer() {
         .catch(error => {
             console.error('Error reading JSON:', error);
         });
-}
-  
+
 }
