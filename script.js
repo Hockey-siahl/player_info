@@ -7,11 +7,13 @@ function findPlayer() {
     .then(response => response.json())
     .then(data => {
             // Filter players with jersey_number playerNumber
-            let player = data.filter(player => player.player_number === 15);
+            let player = data.filter(player => player.jersey_number === 15);
 
             // Do something with the filtered players
-            console.log(player);
-            document.getElementById('playerName').textContent = player.player_name;
+            player.forEach(playerx => {
+                console.log(playerx.player_name);
+            });            
+        document.getElementById('playerName').textContent = player.player_name;
         })
         .catch(error => {
             console.error('Error reading JSON:', error);
