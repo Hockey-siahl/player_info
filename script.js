@@ -24,7 +24,7 @@ function findPlayer() {
 
         mystr = ""
         if (player.length == 0) {mystr = 'No players found';}
-        player.forEach(myplayer => {mystr = mystr + player[0].info + '\n';}
+        player.forEach(myplayer => {mystr = mystr + myplayer.info + '\n';}
         document.getElementById("playerInfo").value = mystr
               
         })
