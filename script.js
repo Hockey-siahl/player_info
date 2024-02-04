@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function findPlayer() {
-
-    document.getElementById("playerInfo").textContent = ''
+    //document.getElementById('myTextarea').value = "Line one of the text.\nLine two of the text.";
+    document.getElementById("playerInfo").value = ''
   
   let playerNumber = Number(document.getElementById('playerNumber').value);
   //console.log(playerNumber);
@@ -25,7 +25,7 @@ function findPlayer() {
         mystr = ""
         if (player.length == 0) {mystr = 'No players found';}
         for myplayer in player {mystr = mystr + player[0].info + '\n';}
-        document.getElementById("playerInfo").textContent = mystr
+        document.getElementById("playerInfo").value = mystr
               
         })
         .catch(error => {
