@@ -75,10 +75,11 @@ function findPlayer() {
             .then(data => {
                 // Filter players with jersey_number playerNumber
                 let players_info = data.filter(player => player.team == teamName8B);
-        mystr = players_info[0].info;
+            mystr = players_info[0].info;
             document.getElementById("playerInfo").value = mystr;
-            }
-                  }
+            });
+    }
+                  
     else {
         fetch("player_data_website.json")
             .then(response => response.json())
