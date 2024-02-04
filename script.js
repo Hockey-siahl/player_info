@@ -64,9 +64,9 @@ function findPlayer() {
     let teamName8B = document.getElementById('team8BDropdown').value;
     let teamName9 = document.getElementById('team9Dropdown').value;
     let playerNumber = Number(document.getElementById('playerNumber').value);
-    console.log(teamName8B);
-    console.log(teamName9);
-    console.log(playerNumber);
+    //console.log(teamName8B);
+    //console.log(teamName9);
+    //console.log(playerNumber);
 
     if (teamName8B != '8B') {
         console.log(teamName8B);
@@ -79,7 +79,18 @@ function findPlayer() {
             document.getElementById("playerInfo").value = mystr;
             });
     }
-                  
+    else if (teamName8B != '9') {
+        console.log(teamName9);
+        fetch("team_8B_data_website.json")
+            .then(response => response.json())
+            .then(data => {
+                // Filter players with jersey_number playerNumber
+                let players_info = data.filter(player => player.team == teamName9);
+            mystr = players_info[0].info;
+            document.getElementById("playerInfo").value = mystr;
+            });
+    }
+
     else {
         fetch("player_data_website.json")
             .then(response => response.json())
