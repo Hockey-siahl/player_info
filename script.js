@@ -79,7 +79,7 @@ function show8B() {
 }
 
 function show9() {
-    let teamName9 = document.getElementById('team8BDropdown').value;
+    let teamName9 = document.getElementById('team9Dropdown').value;
     console.log(teamName9);
     fetch("team_9_data_website.json")
         .then(response => response.json())
