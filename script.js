@@ -24,7 +24,13 @@ function initializeDropdown8B(data) {
     let teamDropdown = document.getElementById('team8BDropdown');
     //let teams = new Set(data.map(player => player.team_name));
     let teams = data.map(item => item.team);
-    console.log(teams);
+    //console.log(teams);
+    // allow null option
+    let option = document.createElement('option');
+    option.value = 'None';
+    option.textContent = 'None';
+    teamDropdown.appendChild(option);
+
     teams.forEach(team => {
         let option = document.createElement('option');
         option.value = team;
