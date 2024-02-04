@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
             initializeDropdown8B(data);
         });
 
-    //fetch('team_9_data_website.json')
-    //    .then(response => response.json())
-    //    .then(data => {
-    //        initializeDropdown9(data);
-    //    });
+    fetch('team_9_data_website.json')
+        .then(response => response.json())
+        .then(data => {
+            initializeDropdown9(data);
+        });
 
 });
 
@@ -39,40 +39,69 @@ function initializeDropdown8B(data) {
     });
 }
 
+function initializeDropdown9(data) {
+    let teamDropdown = document.getElementById('team9Dropdown');
+    let teams = data.map(item => item.team);
+    // allow null option
+    let option = document.createElement('option');
+    option.value = 'None';
+    option.textContent = 'None';
+    teamDropdown.appendChild(option);
+
+    teams.forEach(team => {
+        let option = document.createElement('option');
+        option.value = team;
+        option.textContent = team;
+        teamDropdown.appendChild(option);
+    });
+}
+
 
 function findPlayer() {
     //document.getElementById('myTextarea').value = "Line one of the text.\nLine two of the text.";
     document.getElementById("playerInfo").value = ''
 
-    let teamName = document.getElementById('team8BDropdown').value;
-    console.log(teamName);
+    let teamName8B = document.getElementById('team8BDropdown').value;
+    let teamName9 = document.getElementById('team9Dropdown').value;
   
-  let playerNumber = Number(document.getElementById('playerNumber').value);
-  //console.log(playerNumber);
-  
-  fetch("player_data_website.json")
-    .then(response => response.json())
-    .then(data => {
-            // Filter players with jersey_number playerNumber
-            let player = data.filter(player => player.jersey_number == playerNumber);
+    let playerNumber = Number(document.getElementById('playerNumber').value);
+    //console.log(playerNumber);
 
-        console.log(`Player Name: ${player.info}`);
-
-        mystr = ""
-        if (player.length == 0) {mystr = 'No players found';}
-
-        //playersWithJersey15.forEach(player => {
-        //console.log(`Player Name: ${player.player_name}, Team Name: ${player.team_name}`);
-
-        player.forEach((myplayer) => {
-            mystr = mystr + myplayer.info + '\n';
-        });
-        
-        document.getElementById("playerInfo").value = mystr
-              
-        })
-        .catch(error => {
-            console.error('Error reading JSON:', error);
-        });
+    if (teamName8B != 'None') {
+        fetch("team_8B_data_website.json")
+            .then(response => response.json())
+            .then(data => {
+                // Filter players with jersey_number playerNumber
+                let players_info = data.filter(player => player.team == teamName8B);
+        mystr = players_info[0].info;
+            document.getElementById("playerInfo").value = mystr;
+            }
+                  }
+    else {
+        fetch("player_data_website.json")
+            .then(response => response.json())
+            .then(data => {
+                // Filter players with jersey_number playerNumber
+                let player = data.filter(player => player.jersey_number == playerNumber);
+    
+            console.log(`Player Name: ${player.info}`);
+    
+            mystr = ""
+            if (player.length == 0) {mystr = 'No players found';}
+    
+            //playersWithJersey15.forEach(player => {
+            //console.log(`Player Name: ${player.player_name}, Team Name: ${player.team_name}`);
+    
+            player.forEach((myplayer) => {
+                mystr = mystr + myplayer.info + '\n';
+            });
+            
+            document.getElementById("playerInfo").value = mystr
+                  
+            })
+            .catch(error => {
+                console.error('Error reading JSON:', error);
+            });
+    }
 
 }
