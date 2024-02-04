@@ -71,10 +71,13 @@ function show8B() {
     fetch("team_8B_data_website.json")
         .then(response => response.json())
         .then(data => {
-            // Filter players with jersey_number playerNumber
             let players_info = data.filter(player => player.team == teamName8B);
-        mystr = players_info[0].info;
+            
+        mystr = "team skill level: " + players_info[0].team_skill + '\n';
+        mystr = mystr + players_info[0].info;
         document.getElementById("playerInfo").value = mystr;
+        document.getElementById('team9Dropdown').value = '9';
+        document.getElementById('playerNumber').value = '';
         });
 }
 
@@ -86,8 +89,11 @@ function show9() {
         .then(data => {
             // Filter players with jersey_number playerNumber
             let players_info = data.filter(player => player.team == teamName9);
-        mystr = players_info[0].info;
+        mystr = "team skill level: " + players_info[0].team_skill + '\n';
+        mystr = mystr + players_info[0].info;
         document.getElementById("playerInfo").value = mystr;
+        document.getElementById('team8BDropdown').value = '8B';
+        document.getElementById('playerNumber').value = '';
         });
 }
  
