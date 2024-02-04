@@ -69,6 +69,7 @@ function findPlayer() {
     console.log(playerNumber);
 
     if (teamName8B != '8B') {
+        console.log(teamName8B);
         fetch("team_8B_data_website.json")
             .then(response => response.json())
             .then(data => {
