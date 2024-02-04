@@ -27,8 +27,8 @@ function initializeDropdown8B(data) {
     //console.log(teams);
     // allow null option
     let option = document.createElement('option');
-    option.value = 'None';
-    option.textContent = 'None';
+    option.value = '8B';
+    option.textContent = '8B';
     teamDropdown.appendChild(option);
 
     teams.forEach(team => {
@@ -44,8 +44,8 @@ function initializeDropdown9(data) {
     let teams = data.map(item => item.team);
     // allow null option
     let option = document.createElement('option');
-    option.value = 'None';
-    option.textContent = 'None';
+    option.value = '9';
+    option.textContent = '9';
     teamDropdown.appendChild(option);
 
     teams.forEach(team => {
@@ -63,11 +63,12 @@ function findPlayer() {
 
     let teamName8B = document.getElementById('team8BDropdown').value;
     let teamName9 = document.getElementById('team9Dropdown').value;
-  
     let playerNumber = Number(document.getElementById('playerNumber').value);
-    //console.log(playerNumber);
+    console.log(teamName8B);
+    console.log(teamName9);
+    console.log(playerNumber);
 
-    if (teamName8B != 'None') {
+    if (teamName8B != '8B') {
         fetch("team_8B_data_website.json")
             .then(response => response.json())
             .then(data => {
