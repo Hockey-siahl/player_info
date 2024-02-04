@@ -5,11 +5,40 @@ document.addEventListener('DOMContentLoaded', function() {
             findPlayer(); // Call your function
         }
     });
+
+    fetch('team_8B_data_website.json')
+        .then(response => response.json())
+        .then(data => {
+            initializeDropdown8B(data);
+        });
+
+    //fetch('team_9_data_website.json')
+    //    .then(response => response.json())
+    //    .then(data => {
+    //        initializeDropdown9(data);
+    //    });
+
 });
+
+function initializeDropdown8B(data) {
+    let teamDropdown = document.getElementById('team8BDropdown');
+    #let teams = new Set(data.map(player => player.team_name));
+    let teams = new Set(data.team)
+    teams.forEach(team => {
+        let option = document.createElement('option');
+        option.value = team;
+        option.textContent = team;
+        teamDropdown.appendChild(option);
+    });
+}
+
 
 function findPlayer() {
     //document.getElementById('myTextarea').value = "Line one of the text.\nLine two of the text.";
     document.getElementById("playerInfo").value = ''
+
+    let teamName = document.getElementById('team8BDropdown').value;
+    console.log(teamName);
   
   let playerNumber = Number(document.getElementById('playerNumber').value);
   //console.log(playerNumber);
