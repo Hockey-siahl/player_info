@@ -28,7 +28,10 @@ function findPlayer() {
         //playersWithJersey15.forEach(player => {
         //console.log(`Player Name: ${player.player_name}, Team Name: ${player.team_name}`);
 
-        player.forEach(myplayer) => {mystr = mystr + myplayer.info + '\n';}
+        player.forEach((myplayer) => {
+            mystr = mystr + myplayer.info + '\n';
+        });
+        
         document.getElementById("playerInfo").value = mystr
               
         })
