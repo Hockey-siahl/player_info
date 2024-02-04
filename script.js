@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     team8BDropdown.addEventListener('change', function() {
         show8B();
-    }
+    });
 
     team9Dropdown.addEventListener('change', function() {
         show9();
-    }
+    });
 
 
     fetch('team_8B_data_website.json')
