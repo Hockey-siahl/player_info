@@ -6,6 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    team8BDropdown.addEventListener('change', function() {
+        show8B();
+    }
+
+    team9Dropdown.addEventListener('change', function() {
+        show9();
+    }
+
+
     fetch('team_8B_data_website.json')
         .then(response => response.json())
         .then(data => {
@@ -56,66 +65,67 @@ function initializeDropdown9(data) {
     });
 }
 
+function show8B() {
+    let teamName8B = document.getElementById('team8BDropdown').value;
+    console.log(teamName8B);
+    fetch("team_8B_data_website.json")
+        .then(response => response.json())
+        .then(data => {
+            // Filter players with jersey_number playerNumber
+            let players_info = data.filter(player => player.team == teamName8B);
+        mystr = players_info[0].info;
+        document.getElementById("playerInfo").value = mystr;
+        });
+}
 
+function show9() {
+    let teamName9 = document.getElementById('team8BDropdown').value;
+    console.log(teamName9);
+    fetch("team_9_data_website.json")
+        .then(response => response.json())
+        .then(data => {
+            // Filter players with jersey_number playerNumber
+            let players_info = data.filter(player => player.team == teamName9);
+        mystr = players_info[0].info;
+        document.getElementById("playerInfo").value = mystr;
+        });
+}
+ 
 function findPlayer() {
     //document.getElementById('myTextarea').value = "Line one of the text.\nLine two of the text.";
     document.getElementById("playerInfo").value = ''
 
-    let teamName8B = document.getElementById('team8BDropdown').value;
-    let teamName9 = document.getElementById('team9Dropdown').value;
+    //let teamName8B = document.getElementById('team8BDropdown').value;
+    //let teamName9 = document.getElementById('team9Dropdown').value;
     let playerNumber = Number(document.getElementById('playerNumber').value);
     //console.log(teamName8B);
     //console.log(teamName9);
     //console.log(playerNumber);
 
-    if (teamName8B != '8B') {
-        console.log(teamName8B);
-        fetch("team_8B_data_website.json")
-            .then(response => response.json())
-            .then(data => {
-                // Filter players with jersey_number playerNumber
-                let players_info = data.filter(player => player.team == teamName8B);
-            mystr = players_info[0].info;
-            document.getElementById("playerInfo").value = mystr;
-            });
-    }
-    else if (teamName8B != '9') {
-        console.log(teamName9);
-        fetch("team_8B_data_website.json")
-            .then(response => response.json())
-            .then(data => {
-                // Filter players with jersey_number playerNumber
-                let players_info = data.filter(player => player.team == teamName9);
-            mystr = players_info[0].info;
-            document.getElementById("playerInfo").value = mystr;
-            });
-    }
+    fetch("player_data_website.json")
+        .then(response => response.json())
+        .then(data => {
+            // Filter players with jersey_number playerNumber
+            let player = data.filter(player => player.jersey_number == playerNumber);
 
-    else {
-        fetch("player_data_website.json")
-            .then(response => response.json())
-            .then(data => {
-                // Filter players with jersey_number playerNumber
-                let player = data.filter(player => player.jersey_number == playerNumber);
+        console.log(`Player Name: ${player.info}`);
+
+        mystr = ""
+        if (player.length == 0) {mystr = 'No players found';}
+
+        //playersWithJersey15.forEach(player => {
+        //console.log(`Player Name: ${player.player_name}, Team Name: ${player.team_name}`);
+
+        player.forEach((myplayer) => {
+            mystr = mystr + myplayer.info + '\n';
+        });
+        
+        document.getElementById("playerInfo").value = mystr
+              
+        })
+        .catch(error => {
+            console.error('Error reading JSON:', error);
+        });
     
-            console.log(`Player Name: ${player.info}`);
-    
-            mystr = ""
-            if (player.length == 0) {mystr = 'No players found';}
-    
-            //playersWithJersey15.forEach(player => {
-            //console.log(`Player Name: ${player.player_name}, Team Name: ${player.team_name}`);
-    
-            player.forEach((myplayer) => {
-                mystr = mystr + myplayer.info + '\n';
-            });
-            
-            document.getElementById("playerInfo").value = mystr
-                  
-            })
-            .catch(error => {
-                console.error('Error reading JSON:', error);
-            });
-    }
 
 }
