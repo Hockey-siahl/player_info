@@ -73,7 +73,7 @@ function show8B() {
         .then(data => {
             let players_info = data.filter(player => player.team == teamName8B);
             
-        mystr = "team skill level: " + players_info[0].team_skill + '\n';
+        mystr = "team skill level relative to division: " + players_info[0].team_skill + '\n';
         mystr = mystr + players_info[0].info;
         document.getElementById("playerInfo").value = mystr;
         document.getElementById('team9Dropdown').value = '9';
