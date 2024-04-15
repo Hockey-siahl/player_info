@@ -87,7 +87,6 @@ function show9() {
     fetch("team_9_data_website.json")
         .then(response => response.json())
         .then(data => {
-            // Filter players with jersey_number playerNumber
             let players_info = data.filter(player => player.team == teamName9);
         mystr = "team skill level: " + players_info[0].team_skill + '\n';
         mystr = mystr + players_info[0].info;
@@ -104,10 +103,10 @@ function findPlayer() {
     //let teamName8B = document.getElementById('team8BDropdown').value;
     //let teamName9 = document.getElementById('team9Dropdown').value;
     let playerNumber = Number(document.getElementById('playerNumber').value);
-    //console.log(teamName8B);
-    //console.log(teamName9);
-    //console.log(playerNumber);
+    document.getElementById('team8BDropdown').value = '8B';
+    document.getElementById('team9Dropdown').value = '9';
 
+    
     fetch("player_data_website.json")
         .then(response => response.json())
         .then(data => {
