@@ -8,7 +8,11 @@
     <select id="team8BDropdown" style="font-size:18px"></select>
     <select id="team9Dropdown" style="font-size:18px"></select>
     <input type="number" id="playerNumber" placeholder="player number" style="font-size:18px">
-    <select id="order" style="font-size:18px"></select>
+    <select id="order"  <option value="points">points</option>
+                        <option value="win/loss">winloss</option>
+                        <option value="team goals">teamgoals</option>
+                        <option value="opponent goals">opponentgoals</option>
+                        style="font-size:18px"></select>
     <button style="font-size:18px" onclick="findPlayer()">Go</button>
     <br>
     <textarea id="playerInfo" rows="50" cols = "50" style="font-size:18px"></textarea>
